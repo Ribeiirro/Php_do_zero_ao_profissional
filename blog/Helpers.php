@@ -1,5 +1,12 @@
 <?php
 
+
+/**
+ * Montar uma url deacordo com o ambiente;
+ * @param string $url parte da url ex. admin
+ * @return string url completa.
+ */
+
 function url(string $url): string {
   $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
 

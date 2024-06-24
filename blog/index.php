@@ -1,8 +1,21 @@
 
 <?php
+
 //declare(strict_types = 1); //Função obriga o php a usar o tipo de dado especifico sem realizar nenhuma alteração do tipo de dado.
 require_once 'sistema/configuracao.php';
 require_once 'Helpers.php';
 
-echo contarTempo('2023-06-24 14:54:15');
+//var_dump(validarEmail('email@email.com'));
+// if(validarEmail('teste')){
+// echo 'Email valido';
+// }else{
 
+// echo 'Email invalido'; 
+// }
+
+if (validarUrl('teste')) {
+  echo 'Url valida';
+} else {
+
+  echo 'Url invalida';
+}

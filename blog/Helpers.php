@@ -1,6 +1,32 @@
 <?php
 
-function validarUrl(string $url):bool
+
+/**
+ * 
+ * Validar url
+ * 
+ * @param string $url
+ * @return bool
+ */
+
+function validarUrlPropia(string $url): bool
+{
+  if (mb_strlen($url) > 10) {
+    return false;
+  }
+
+  if (!str_contains($url, '.')) {
+    return false;
+  }
+
+  if (str_contains($url, 'http://') || str_contains($url, 'https://')) {
+    return true;
+  }
+
+  return false;
+}
+
+function validarUrl(string $url): bool
 {
   return filter_var($url, FILTER_VALIDATE_URL);
 }
@@ -18,7 +44,7 @@ function validarEmail(string $email): bool
  * @return string
  */
 
-function contarTempo(string $data):string
+function contarTempo(string $data): string
 {
   $agora = strtotime(date('Y-m-d H:i:s'));
   $tempo = strtotime($data);

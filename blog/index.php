@@ -4,5 +4,5 @@
 require_once 'sistema/configuracao.php';
 require_once 'Helpers.php';
 
-contarTempo('2010-06-24 23:30:15');
+echo contarTempo('2023-06-24 14:54:15');
 

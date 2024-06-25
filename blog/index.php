@@ -9,7 +9,9 @@ require_once 'sistema/configuracao.php';
 include_once 'Helpers.php';
 include 'sistema/Nucleo/Mesagem.php';
 
-echo (new Mensagem())->warning('Mensagem alerta');
+use sistema\Nucleo\Mensagem;
+
+echo (new Mensagem)->warning('Mensagem alerta');
 
 // echo (new Mensagem())->error('mensagem de erro')->renderizar();
 

@@ -1,5 +1,26 @@
 <?php
 
+
+function saudacaoMetch(): string
+
+{
+  $hora =  date('H');
+
+  // $saudacao = match($hora) {
+  //   '09' =>'Bom dia',
+  //   '12' => 'Boa tarde'
+  // };
+
+  $saudacao = match(true) {
+    $hora >= 0 and $hora <= 5 => 'Boa madrugada',
+    $hora >= 6 and $hora <= 12 => 'Bom dia',
+    $hora >= 13 and $hora <= 18 => 'Boa tarde',
+
+    default => 'Boa noite'
+  };
+  return $saudacao;
+}
+
 function saudacaoSwitCase(): string
 
 /**

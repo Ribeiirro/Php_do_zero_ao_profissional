@@ -1,5 +1,17 @@
 <?php
 
+function slug(string $string) : string
+{
+
+  $mapa['a'] = '"#$%&()*+,-./0-9:;<=>?@A-Z[\]^_`a-z{|}~-¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿŒœŠšŸˆ˜– —‘’‚“”„†‡‰‹';
+
+  $mapa['b'] = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  $slug = strtr(utf8_decode($string), utf8_decode($mapa['a']), $mapa['b']);
+
+  return $slug; 
+}
+
 /**
  * 
  * Função para devolver dias, meses e ano, para formatar de acordo com nossa vontade.

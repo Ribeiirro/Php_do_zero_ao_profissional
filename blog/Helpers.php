@@ -1,5 +1,48 @@
 <?php
 
+/**
+ * 
+ * Função para devolver dias, meses e ano, para formatar de acordo com nossa vontade.
+ * @param string, Separação de elemento a elemento
+ * @return void, devolvendo os dados de acordo com a formatação escolhida.
+ */
+function dataAtual(): string {
+  $diaMes = date('d');
+  $diaSemana = date('w');
+  $mes= date('n') -1;
+  $ano= date('Y') ;
+
+  $nomesDiasDaSemana = [
+    'Domingo',
+    'Segunda - Feira',
+    'Terça - Feira',
+    'Quarta - Feira',
+    'Quinta - Feira',
+    'Sexta - Feira',
+    'Sábado'
+  ];
+
+  $mesesDoAno = [
+    'Janeiro',
+    'Feveiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro'
+  ];
+
+  $dataFormatada = $nomesDiasDaSemana[$diaSemana].', '.$diaMes.' de '.$mesesDoAno[$mes].' de '.$ano;
+
+  return $dataFormatada;
+
+}
+
 
 /**
  * Montar uma url deacordo com o ambiente;

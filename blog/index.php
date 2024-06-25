@@ -3,11 +3,10 @@
 require_once 'sistema/configuracao.php';
 include_once 'sistema/Nucleo/Helpers.php';
 include 'sistema/Nucleo/Mesagem.php';
+include 'sistema/Nucleo/Controlador.php';
 
-use sistema\Nucleo\Helpers;
+use sistema\Nucleo\Controlador;
 
-// $helper = new Helpers();
-// echo '<br>';
-// echo $helper->validarCpf('12345678901');
-// echo '<br>';
-echo Helpers::limparNumero('kjflsdkfkajo7894739274824620hjknfksnkf');
+$controlador = new Controlador('admin');
+echo '<br>';
+var_dump($controlador);

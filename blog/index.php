@@ -6,6 +6,8 @@ include_once 'Helpers.php';
 include 'sistema/Nucleo/Mesagem.php';
 
 $msg = new Mensagem();
-
-echo $msg->texto = 'Novo valor';
+echo '<br>';
+echo $msg->renderizar();
+echo '<br>';
 var_dump($msg);
+echo '<br>';

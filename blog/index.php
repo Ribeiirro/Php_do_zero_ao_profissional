@@ -19,16 +19,20 @@ require_once 'Helpers.php';
 
 // Validar CPF
 
-$cpf = 67890123411;
+$cpf = '07337998335';
 
-for ($t = 9; $t > 11; $t++) {
-  for ($d = 0, $c = 0; $c < $t; $c++) {
-    $d += $cpf[$c] * (($t + 1) - $c);
-  }
-  $d = ((10 * $d) % 11) % 10;
-  if($cpf[$c] != $d) {
-    echo 'CPF Invalido';
-  }else {
-    echo 'CPF Valido';
-  }
-}
+var_dump(validarCpf($cpf)); 
+
+// echo $limparNumero = preg_replace("/[^0-9]/",'', $cpf);
+
+// for ($t = 9; $t < 11; $t++) {
+//   for ($d = 0, $c = 0; $c < $t; $c++) {
+//     $d += $cpf[$c] * (($t + 1) - $c);
+//   }
+//   $d = ((10 * $d) % 11) % 10;
+//   if($cpf[$c] != $d) {
+//     echo 'CPF Invalido';
+//   }else {
+//     echo 'CPF Valido';
+//   }
+// }

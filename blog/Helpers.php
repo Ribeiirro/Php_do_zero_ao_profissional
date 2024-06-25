@@ -1,5 +1,28 @@
 <?php
 
+function validarCpf(string $cpf): bool
+{
+  $cpf = limparNumero($cpf);
+  
+  if (mb_strlen($cpf) != 11 || preg_match('/(\d)\1{10}/', $cpf)) {
+    return false;
+  }
+  for ($t = 9; $t < 11; $t++) {
+    for ($d = 0, $c = 0; $c < $t; $c++) {
+      $d += $cpf[$c] * (($t + 1) - $c);
+    }
+    $d = ((10 * $d) % 11) % 10;
+    if ($cpf[$c] != $d) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function limparNumero(string $numero) :string {
+  return preg_replace("/[^0-9]/",'', $numero);
+
+}
 
 function saudacaoMetch(): string
 
@@ -11,7 +34,7 @@ function saudacaoMetch(): string
   //   '12' => 'Boa tarde'
   // };
 
-  $saudacao = match(true) {
+  $saudacao = match (true) {
     $hora >= 0 and $hora <= 5 => 'Boa madrugada',
     $hora >= 6 and $hora <= 12 => 'Bom dia',
     $hora >= 13 and $hora <= 18 => 'Boa tarde',
@@ -39,7 +62,7 @@ function saudacaoSwitCase(): string
     case $hora >= 13 && $hora <= 18:
       $saudacao = '';
       break;
-      default :
+    default:
       $saudacao = 'Boa noite';
   };
   return $saudacao;

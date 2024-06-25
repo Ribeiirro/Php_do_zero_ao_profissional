@@ -9,12 +9,8 @@ require_once 'sistema/configuracao.php';
 include_once 'Helpers.php';
 include 'sistema/Nucleo/Mesagem.php';
 
-$msg = new Mensagem();
-echo '<br>';
-echo $msg->sucesso('Mensagem chama por outro metodo')->renderizar();
-echo $msg->error('Mensagem chama por outro metodo')->renderizar();
-echo $msg->warning('Mensagem chama por outro metodo')->renderizar();
-echo $msg->info('Mensagem chama por outro metodo')->renderizar();
-echo '<br>';
-var_dump($msg);
+echo (new Mensagem())->warning('Mensagem alerta');
+
+// echo (new Mensagem())->error('mensagem de erro')->renderizar();
+
 echo '<br>';

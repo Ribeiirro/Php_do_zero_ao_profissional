@@ -1,6 +1,34 @@
 <?php
 
-function slug(string $string) : string
+function saudacaoSwitCase(): string
+
+/**
+ * 
+ * Uso do switCase para reduzir o tamanho da função passando aguntos com menor verbosidade.
+ */
+{
+  $hora =  date('H');
+  switch ($hora) {
+    case $hora >= 0 && $hora <= 5:
+      $saudacao = 'Boa madrugada';
+      break;
+    case $hora >= 6 && $hora <= 12:
+      $saudacao = 'Bom dia';
+      break;
+    case $hora >= 13 && $hora <= 18:
+      $saudacao = '';
+      break;
+      default :
+      $saudacao = 'Boa noite';
+  };
+  return $saudacao;
+}
+
+
+function slug(string $string): string
+/**
+ * Função para substituir caracters especiais, obs: Atentar-se para a ordem dos item pois se faltar a função continuará sem resover alguns erros pois ela conta a quantidade de caracteres para realizar a substituição por outro de igual equivalincia em ordem.
+ */
 {
 
   $mapa['a'] = '"#$%&()*+,-./0-9:;<=>?@A-Z[\]^_`a-z{|}~-¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿŒœŠšŸˆ˜– —‘’‚“”„†‡‰‹';
@@ -9,7 +37,7 @@ function slug(string $string) : string
 
   $slug = strtr(utf8_decode($string), utf8_decode($mapa['a']), $mapa['b']);
 
-  return $slug; 
+  return $slug;
 }
 
 /**
@@ -18,11 +46,12 @@ function slug(string $string) : string
  * @param string, Separação de elemento a elemento
  * @return void, devolvendo os dados de acordo com a formatação escolhida.
  */
-function dataAtual(): string {
+function dataAtual(): string
+{
   $diaMes = date('d');
   $diaSemana = date('w');
-  $mes= date('n') -1;
-  $ano= date('Y') ;
+  $mes = date('n') - 1;
+  $ano = date('Y');
 
   $nomesDiasDaSemana = [
     'Domingo',
@@ -49,10 +78,9 @@ function dataAtual(): string {
     'Dezembro'
   ];
 
-  $dataFormatada = $nomesDiasDaSemana[$diaSemana].', '.$diaMes.' de '.$mesesDoAno[$mes].' de '.$ano;
+  $dataFormatada = $nomesDiasDaSemana[$diaSemana] . ', ' . $diaMes . ' de ' . $mesesDoAno[$mes] . ' de ' . $ano;
 
   return $dataFormatada;
-
 }
 
 
@@ -62,24 +90,26 @@ function dataAtual(): string {
  * @return string url completa.
  */
 
-function url(string $url): string {
+function url(string $url): string
+{
   $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
 
-  $ambiente = ($servidor == 'localhost'? URL_DESENVOLVIMENTO:URL_PRODUCAO);
+  $ambiente = ($servidor == 'localhost' ? URL_DESENVOLVIMENTO : URL_PRODUCAO);
 
-  if(str_starts_with($url, '/')) {
-    return $ambiente.$url;
+  if (str_starts_with($url, '/')) {
+    return $ambiente . $url;
   }
 
-  return $ambiente.'/'.$url;
+  return $ambiente . '/' . $url;
 }
 
-function localhost(): bool {
+function localhost(): bool
+{
   $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
 
-  if($servidor ==  'localhost'){
+  if ($servidor ==  'localhost') {
     return true;
-  }else {
+  } else {
     return false;
   }
 }

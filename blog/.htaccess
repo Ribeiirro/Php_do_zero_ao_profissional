@@ -1,4 +1,4 @@
-Options -indexes
+ Options -Includes
 
 RewriteEngine On
 

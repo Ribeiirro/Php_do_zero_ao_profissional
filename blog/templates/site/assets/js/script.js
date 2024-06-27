@@ -1,0 +1,1 @@
+alert('Pate de site');

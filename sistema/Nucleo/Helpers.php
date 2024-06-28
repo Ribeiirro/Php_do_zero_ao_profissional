@@ -7,6 +7,17 @@ use Exception;
 class Helpers
 {
 
+  public static function redirecionar(string $url = null): void
+  {
+    header('HTTP/1.1 302 Found');
+
+    $local = ($url ? self::url($url) : self::url());
+
+    header("Location: {$local} ");
+
+    exit();
+  }
+
   public static function limparNumero(string $numero): string
   {
     return preg_replace("/[^0-9]/", '', $numero);
@@ -18,7 +29,7 @@ class Helpers
     $cpf = self::limparNumero($cpf);
 
     if (mb_strlen($cpf) != 11 || preg_match('/(\d)\1{10}/', $cpf)) {
-     throw new Exception('O cpf precesa de ter 11 digitos.');
+      throw new Exception('<p class="alert alert-danger">O CPF precisa de ter 11 digitos.</p>');
     }
     for ($t = 9; $t < 11; $t++) {
       for ($d = 0, $c = 0; $c < $t; $c++) {

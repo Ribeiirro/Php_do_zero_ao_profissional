@@ -1,0 +1,19 @@
+ #Bloqueio da subpastas do diretorio raiz.
+ Options -indexes
+
+# Configuração para usar o modulo de reescrita do apache. Caso necessario verificar se ja está habilitado.
+RewriteEngine on
+
+#Uso de urls amigaveis. Remove ex: .php?pagina=1.
+RewriteBase /blog
+
+# Condições para reescrita das urls.
+# -f,Não trata TestString como um nome de caminho e testa se ele existe ou não e é um arquivo normal
+RewriteCond %{SCRIPT_FILENAME} !-f 
+# Não trata TestString como um nome de caminho e testa se ele existe ou não e é um diretório.
+RewriteCond %{SCRIPT_FILENAME} !-d
+# Não trata TestString como um nome de caminho e testa se ele existe ou não, e é um link simbólico. Também pode usar a convenção bash de -L ou -h se houver possibilidade de confusão, como ao usar os testes -lt ou -le 
+RewriteCond %{SCRIPT_FILENAME} !-eu
+RewriteCond %{SCRIPT_FILENAME} !-l
+# Regras para construção da url
+RewriteRule ^(.*)$ index.php/$1

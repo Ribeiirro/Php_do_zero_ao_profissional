@@ -294,7 +294,7 @@ class Helpers
    * 
    */
 
-  public static function resumirText(string $texto, int $limite, string $continue = '...'): string
+  public static function resumirTexto(string $texto, int $limite, string $continue = '...'): string
   {
     $textoLimpo = trim(strip_tags($texto));
     //se a quantidade de caracteres for menor que o limite retorne o limite

@@ -1,7 +1,20 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block conteudo %}
 
-{% block conteudo %}
-
-<h1>Index</h1>
+<div class="coteiner my-5">
+  <div class="row">
+    {% for post in posts %}
+    <div class="col-md-3">
+      <div class="card mb-4">
+        <div class="card-body">
+          <a href="{{url('post/'~post.id)}}">
+            <h5 class="card-title">{{post.titulo}}</h5>
+            <p class="card-text">{{resumirTexto(post.texto,50)}}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 
 {% endblock %}

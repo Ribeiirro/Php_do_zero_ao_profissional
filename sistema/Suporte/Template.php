@@ -41,6 +41,11 @@ class Template
           return Helpers::saudacao();
         })
       ),
+      $this->twig->addFunction(
+        new \Twig\TwigFunction('resumirTexto', function ( string $texto, int $limite) {
+          return Helpers::resumirTexto($texto, $limite);
+        })
+      ),
     );
   }
 }

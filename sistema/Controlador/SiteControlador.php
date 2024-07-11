@@ -26,9 +26,26 @@ class SiteControlador extends Controlador
     ]);
   }
 
+
+  public function buscar(): void
+  {
+
+    $busca = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+    if (isset($busca)) {
+      $posts = (new PostModelo())->pesquisa($busca['busca']);
+
+
+      echo $this->template->renderizar('busca.html', [
+        'posts' => $posts,
+        'categorias' => $this->categorias(),
+      ]);
+    }
+  }
+
   public function post(int $id): void
   {
-    $post = (new PostModelo()) ->buscarPorId($id);
+    $post = (new PostModelo())->buscarPorId($id);
 
     if (!$post) {
       Helpers::redirecionar('404');
@@ -40,8 +57,9 @@ class SiteControlador extends Controlador
     ]);
   }
 
-  public function categoria(int $id): void {
-    $posts = (new CategoriaModelo()) ->posts($id);
+  public function categoria(int $id): void
+  {
+    $posts = (new CategoriaModelo())->posts($id);
 
     echo $this->template->renderizar('categorias.html', [
       'posts' => $posts,
@@ -59,7 +77,7 @@ class SiteControlador extends Controlador
     echo $this->template->renderizar('sobre.html', [
       'titulo' => 'pagina sobre',
       'categorias' => $this->categorias(),
-      ]);
+    ]);
   }
 
   public function erro404(): void

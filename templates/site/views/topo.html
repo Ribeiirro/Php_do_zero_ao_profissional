@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{url()}}">
-    <img src="{{url('sistema/templates/assets/img/logo_php8_3.svg')}}" alt=""></a>
+    <img src="{{url('templates/site/assets/img/logo_php8_3.svg')}}" alt=""></a>
 
     <button
       class="navbar-toggler"
@@ -43,16 +43,18 @@
       </ul>
     </div>
 
-    <form action="{{url('buscar')}}" method="post" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+    <form data-url-busca="{{url('buscar')}}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
       <input
         type="search"
         name="busca"
+        id="busca"
         class="form-control form-control-dark"
         placeholder="Search..."
         aria-label="Search"
       />
-      <input type="submit" value="">
     </form>
+
+    <div class="my-3" id="buscaResultado"></div>
 
     <div class="text-end">
       <button type="button" class="btn btn-outline-light me-2">Login</button>

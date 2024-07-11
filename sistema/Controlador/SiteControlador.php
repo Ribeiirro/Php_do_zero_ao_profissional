@@ -6,7 +6,6 @@ use sistema\Nucleo\Controlador;
 use sistema\Modelo\PostModelo;
 use sistema\Nucleo\Helpers;
 use sistema\Modelo\CategoriaModelo;
-use Twig\Node\CaptureNode;
 
 class SiteControlador extends Controlador
 {
@@ -30,16 +29,15 @@ class SiteControlador extends Controlador
   public function buscar(): void
   {
 
-    $busca = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+    $busca = filter_input(INPUT_POST,'busca', FILTER_DEFAULT);
 
     if (isset($busca)) {
-      $posts = (new PostModelo())->pesquisa($busca['busca']);
+      $posts = (new PostModelo())->pesquisa($busca);
 
-
-      echo $this->template->renderizar('busca.html', [
-        'posts' => $posts,
-        'categorias' => $this->categorias(),
-      ]);
+      foreach ($posts as $post) {
+        // echo $post->titulo;
+        echo "<li class='list-group-item tw-bold><a href=".Helpers::url('post/').$post->id." class='text-white' >$post->titulo </a></li>";
+      }
     }
   }
 

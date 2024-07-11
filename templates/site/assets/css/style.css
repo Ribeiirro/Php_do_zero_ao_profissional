@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  appearance: none;
+  border: 0;
+  text-decoration: none !important;
+  color: black;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+}
+
+.coteiner {
+  padding: 1rem 3rem;
+}
+
+p {
+  text-align: justify;
+}
+
+.coteiner button {
+  position: relative;
+  left: calc(100vw - 200px);
+  top: -36px;
+}
+
+.card {
+  height: 16rem;
+  /* width: 16rem; */
+  overflow: hidden;
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+img,
+svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+img,
+svg,
+path {
+  color: aliceblue;
+}

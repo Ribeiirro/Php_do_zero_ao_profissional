@@ -1,18 +1,25 @@
 <?php
 
 namespace sistema\Modelo;
+
 use sistema\Nucleo\Conexao;
 
 class PostModelo
 {
-  public function busca(int $id = null): array
+  public function busca(): array
   {
-
-    $where  = ($id ? "WHERE  id = {$id}" : '');
-
-    $query = "SELECT * FROM posts {$where} ";
+    $query = "SELECT * FROM posts ";
     $stmt = Conexao::getInstancia()->query($query);
     $resultado = $stmt->fetchAll();
+
+    return $resultado;
+  }
+
+  public function buscarPorId(int $id): bool | object
+  {
+    $query = "SELECT * FROM posts WHERE id ={$id} ";
+    $stmt = Conexao::getInstancia()->query($query);
+    $resultado = $stmt->fetch();
 
     return $resultado;
   }

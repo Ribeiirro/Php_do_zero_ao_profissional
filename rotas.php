@@ -1,6 +1,7 @@
 <?php
 
 use Pecee\SimpleRouter\SimpleRouter;
+use sistema\Controlador\Admin\AdminDashboard;
 use sistema\Nucleo\Helpers;
 
 try {
@@ -12,7 +13,12 @@ try {
   SimpleRouter::get(URL_SITE . 'post/{id}', 'SiteControlador@post');
   SimpleRouter::get(URL_SITE . 'categoria/{id}', 'SiteControlador@categoria');
   SimpleRouter::post(URL_SITE . 'buscar', 'SiteControlador@buscar');
+
   SimpleRouter::get(URL_SITE. '404', 'SiteControlador@erro404');
+
+  SimpleRouter::group(['namespace' => 'Admin'], function () {
+    SimpleRouter::get(URL_ADMIN.'dashboard', 'AdminDashboard@dashboard');
+});
 
   SimpleRouter::start();
 } catch (Pecee\SimpleRouter\Exceptions\NotFoundHttpException $e) {

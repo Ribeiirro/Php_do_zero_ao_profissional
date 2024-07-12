@@ -1,0 +1,41 @@
+{% extends "dashboard.html" %} {% block corpo %}
+<div class="card">
+  <div class="container-fluid">
+    <div class="title">Listar Categorias</div>
+
+     {{categorias.titulo}} 
+  </div>
+</div>
+
+<div class="recent-orders">
+  <table id="recent-orders--table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Titulo</th>
+        <th>Status</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for categoria in categorias %}
+    <tr>
+    <th>{{categoria.id}}</th>
+    <th>{{categoria.titulo}}</th>
+    <th>
+    {% if categoria.status == 1 %}
+    Ativo
+    {% else %}
+    Inativo
+    {% endif %}
+    
+    </th>
+    <th></th>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <a href="#">Show All</a>
+</div>
+
+{% endblock %}

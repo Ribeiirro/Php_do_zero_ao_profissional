@@ -1,27 +1,18 @@
-
-$(document).ready(function (){
-  $("#busca").keyup(function (){
-    var busca = $(this).val();
-
-    if(busca.length > 0) {
-      $.ajax({
-        url: $('form').attr('data-url-busca'),
-        method: 'POST',
-
-        data: {
-          busca: busca
-        },
-        success: function(resultado) {
-          if(resultado) {
-            $('#buscaResultado').html("<div class='card'><div class='card-body'><ul class='list-group list-group-flush'>"+resultado+"</ul></div></div>");
-          } else {
-            $('#buscaResultado').html('<div class="alert alert-warning"> Nenhum resultado encontrado!</div>');
-          }
-        }
-      });
-      $('#buscaResultado').show();
-    } else {
-      $('#buscaResultado').hide();
-    }
-  });
+$('#toggle-menu').click(function(){
+  $('#warraper').toggleClass('small-menu');
 });
+
+$('body').on('mouseenter', '#warraper.small-menu #left-menu li a', function(){
+  var label = $(this).find('span').text();
+  var position = $(this).position();
+  
+  $('#show-label-menu').stop().fadeIn();
+  $('#show-label-menu').text(label);
+  $('#show-label-menu').css('top', position.top + 'px');
+});
+
+$('body').on('mouseleave', '#warraper.small-menu #left-menu li a', function(){
+  $('#show-label-menu').stop().fadeOut();
+});
+
+console.log("eve")

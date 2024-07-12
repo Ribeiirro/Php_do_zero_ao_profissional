@@ -1,12 +1,24 @@
 {% extends "base.html" %} {% block corpo %}
-
-<div class="row">
-  <div class="col-lg-3">
-    {% include "menu.html" %}
+<div class="card">
+  <div class="container-fluid">
+    <div class="title">Create new user</div>
+    <div class="content">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-lg-9">{% block conteudo %}
-    <H1>DASHBOARD BEM VINDO!</H1>
-   {% endblock %}</div>
 </div>
 
 {% endblock %}

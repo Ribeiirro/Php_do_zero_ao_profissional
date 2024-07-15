@@ -32,4 +32,13 @@ class PostModelo
 
     return $resultado;
   }
+
+  public function armazenar(array $dados): void
+  {
+    $query = "INSERT INTO `posts` (`categoria_id`, `titulo`, `texto`, `status`) VALUES ( :categoria_id , :titulo, :texto, :status);";
+
+    $stmt = Conexao::getInstancia()->prepare($query);
+    $stmt->execute($dados);
+  }
+
 }

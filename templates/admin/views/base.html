@@ -1,42 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Admin Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<html>
+    <head>
+        <title>Painel Administrativo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css">
+        <link rel="stylesheet" href="{{ url('templates/assets/css/estilos.css') }}">
+        <link rel="stylesheet" href="{{ url('/templates/admin/assets/css/admin.css') }}">       
+        <link rel="shortcut icon" href="../templates/admin/assets/img/favicon.ico" />
+    </head>
+    <body> 
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="{{url('templates/admin/assets/css/admin.css')}}"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-  </head>
-  <body>
-    <!-- partial:index.partial.html -->
-    <div id="warraper">
-      <div id="logo">
-        <img src="https://www.php.net/images/php8/logo_php8.svg" alt="">
-      </div>
-      <span id="show-label-menu">using only small screen</span>
-      <div id="left-menu">{% include "menu.html" %}</div>
-      <div id="top-header">{% include "header.html" %}</div>
-      <div id="main-content"> {% block corpo %}  {% endblock %}</div>
-    </div>
-    <!-- partial -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="{{url('templates/admin/assets/js/admin.js')}}"></script>
-  </body>
+        {% block corpo %} {% endblock %}        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="{{ url('templates/assets/js/scripts.js') }}"></script>
+        <script src="{{ url('templates/admin/assets/js/admin.js') }}"></script>
+    </body>
 </html>

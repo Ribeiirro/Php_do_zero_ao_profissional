@@ -1,39 +1,53 @@
-{% extends "dashboard.html" %} {% block corpo %}
-<div class="card">
-  <div class="container-fluid">
-    <div class="title">Listar Categorias</div>
+{% extends "dashboard.html" %}
 
-    {{categorias.titulo}}
-  </div>
+{% block conteudo %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{{url('admin/dashboard')}}">
+                Home
+            </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Categorias
+        </li>
+    </ol>
+</nav>
+<div class="card border-0 shadow-sm">
+    <div class="card-header bg-white border-0">
+        <a href="{{url('admin/categorias/cadastrar')}}" class="btn btn-primary">Cadastrar</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Título</th>
+                        <th class="text-center">Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for categoria in categorias %}
+                    <tr>
+                        <th>{{categoria.id}}</th>
+                        <td>{{categoria.titulo}}</td>
+                        <td class="text-center">
+                            {% if categoria.status == 1 %}
+                            <i class="fa-solid fa-circle text-success" tooltip="tooltip" title="Ativo"></i>
+                            {% else %}
+                            <i class="fa-solid fa-circle text-danger" tooltip="tooltip" title="Inativo"></i>
+                            {% endif %}
+                        </td>
+                        <td class="text-center"></td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>     
+
+
+    </div>
 </div>
-
-<div class="recent-orders">
-  <table id="recent-orders--table">
-    <a href="{{url('admin/categorias/cadastrar')}}" class="btn btn-primary">
-      Cadastar</a
-    >
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>Titulo</th>
-        <th>Status</th>
-        <th>Ação</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for categoria in categorias %}
-      <tr>
-        <th>{{categoria.id}}</th>
-        <th>{{categoria.titulo}}</th>
-        <th>
-          {% if categoria.status == 1 %} Ativo {% else %} Inativo {% endif %}
-        </th>
-        <th></th>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  <a href="#">Show All</a>
-</div>
-
 {% endblock %}

@@ -1,24 +1,23 @@
-{% extends "base.html" %} {% block corpo %}
-<div class="card">
-  <div class="container-fluid">
-    <div class="title">Create new user</div>
-    <div class="content">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" />
-          </div>
+{% extends "base.html" %}
+{% block corpo %}
+
+{% include 'menu.html' %}
+
+<div class="conteudo">
+    {% include 'topo.html' %}
+    <main>
+        {% block conteudo %}  
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white border-0">
+                <h5 class="card-title">Dashboard</h5>
+            </div>
+            <div class="card-body">
+                Conteúdo em desenvolvimento
+            </div>
         </div>
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        {% endblock %}
+    </main>
+    {% include 'rodape.html' %}
 </div>
 
 {% endblock %}

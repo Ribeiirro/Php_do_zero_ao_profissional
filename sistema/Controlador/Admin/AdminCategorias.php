@@ -14,6 +14,12 @@ class AdminCategorias extends AdminControlador
     ]);
   }
 
+  public function cadastrar(): void
+  {
+    echo $this->template->renderizar('categorias/formulario.html',[]);
+  }
+
+
 }
 
 ?>

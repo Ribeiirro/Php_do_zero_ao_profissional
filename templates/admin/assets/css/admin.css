@@ -1,24 +1,25 @@
-body{
+body {
   background-color: #eee;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-*{
+* {
   box-sizing: border-box;
   font-weight: 300;
 }
-a:hover{
+a:hover {
   text-decoration: none;
 }
 
-.form-control:focus{
+.form-control:focus {
   box-shadow: none;
 }
 
-.form-control,.card{
+.form-control,
+.card {
   border-radius: 2px;
 }
 
-#top-header{
+#top-header {
   background-color: #f2f2f2;
   height: 40px;
   border-bottom: 1px solid #ccc;
@@ -29,19 +30,20 @@ a:hover{
   z-index: 1;
   width: 100%;
 }
-#top-header i{
+#top-header i {
   margin: 10px 15px;
   cursor: pointer;
   font-size: 20px;
 }
 
-#left-menu,#logo{
+#left-menu,
+#logo {
   width: 250px;
   background-color: #2f3e4e;
   color: #99abba;
 }
 
-#logo{
+#logo {
   height: 40px;
   border-bottom: 1px solid #465a6e;
   text-align: center;
@@ -52,10 +54,15 @@ a:hover{
   top: 0;
   left: 0;
 }
-#logo span{
-   transition: all 0.3s ease;
+#logo img {
+  transition: all 0.3s ease;
+
+  width: 3rem;
+  height: 4rem;
+
+  margin-top: -1rem;
 }
-#left-menu{
+#left-menu {
   height: 100vh;
   top: 40px;
   position: fixed;
@@ -65,30 +72,30 @@ a:hover{
   z-index: 15;
 }
 
-#left-menu ul{
+#left-menu ul {
   padding: 0;
   margin: 0;
   padding-top: 15px;
 }
-#left-menu ul li{
+#left-menu ul li {
   list-style-type: none;
   height: 50px;
   width: 250px;
 }
 
-#left-menu ul li a{
+#left-menu ul li a {
   color: #99abba;
   padding: 10px 15px;
   display: inline-block;
   width: 100%;
 }
-#left-menu ul li a:hover{
+#left-menu ul li a:hover {
   color: #f2f2f2;
 }
-#left-menu ul li.active a{
+#left-menu ul li.active a {
   color: #d74703;
 }
-#left-menu ul li a span{
+#left-menu ul li a span {
   display: inline-block;
   vertical-align: middle;
   margin-top: -7px;
@@ -96,53 +103,66 @@ a:hover{
   transition: all 0.3s;
 }
 
-#left-menu ul li a i{
+#left-menu ul li a i {
   font-size: 20px;
 }
-#warraper.small-menu #logo{
+
+#warraper.small-menu #logo {
   width: 60px;
   border-bottom: 1px solid transparent;
 }
-#warraper.small-menu #logo span{
+
+#warraper.small-menu #logo img {
   opacity: 0;
   visibility: hidden;
+  width: 5rem;
+  height: 5rem;
 }
-#warraper.small-menu #left-menu{
+
+#warraper.small-menu  ul {
+  padding-top: 42px;
+}
+
+#warraper.small-menu #left-menu {
   width: 60px;
   top: 0;
   overflow-x: hidden;
   overflow-y: auto;
 }
-#warraper.small-menu #left-menu span{
+
+#warraper.small-menu #left-menu span {
   opacity: 0;
   visibility: hidden;
   left: 0;
 }
-#warraper.small-menu #main-content{
+
+#warraper.small-menu #main-content {
   margin-left: 80px;
 }
-#warraper.small-menu #top-header{
+
+#warraper.small-menu #top-header {
   padding-left: 70px;
 }
-#main-content{
+#main-content {
   margin-left: 270px;
   margin-top: 20px;
   margin-right: 20px;
   transition: all 0.3s;
   margin-top: 60px;
 }
-#main-content .card{
+
+#main-content .card {
   margin-bottom: 20px;
   padding: 15px 2px;
-  border: 1px solid #cdcdcd
+  border: 1px solid #cdcdcd;
 }
-#main-content .title{
+#main-content .title {
   padding: 10px 0;
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
 }
 
-#show-label-menu{
+#show-label-menu {
   position: fixed;
   width: 200px;
   overflow-x: hidden;
@@ -157,33 +177,31 @@ a:hover{
 }
 
 @media only screen and (max-width: 772px) {
-  #top-header #toggle-menu{
+  #top-header #toggle-menu {
     display: none;
   }
-  
-  #logo{
+
+  #logo {
     top: -50px;
   }
-  #left-menu{
+  #left-menu {
     width: 60px;
     top: 0;
     overflow-x: hidden;
     overflow-y: auto;
   }
- 
-  #left-menu span{
+
+  #left-menu span {
     opacity: 0;
     visibility: hidden;
   }
-  #main-content{
+  #main-content {
     margin-left: 80px;
   }
-  #top-header{
+  #top-header {
     padding-left: 70px;
   }
 }
-
-
 
 /* START RECENT ORDERS */
 /* .recent-orders {
@@ -195,7 +213,7 @@ a:hover{
 .recent-orders table {
   background: #fff;
   width: 100%;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   padding: 1.8rem;
   text-align: center;
   transition: all 300ms ease;

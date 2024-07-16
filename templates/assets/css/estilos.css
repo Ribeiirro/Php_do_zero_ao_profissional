@@ -18,6 +18,10 @@
     --corLink: #414e6c;
 }
 
+* {
+    
+}
+
 body {
     color: var(--corTexto)
 }

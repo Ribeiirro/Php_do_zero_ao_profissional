@@ -40,7 +40,9 @@
                             <i class="fa-solid fa-circle text-danger" tooltip="tooltip" title="Inativo"></i>
                             {% endif %}
                         </td>
-                        <td class="text-center"></td>
+                        <td class="text-center">
+                             <a href="{{ url('admin/categorias/editar/'~categoria.id) }}">Editar</a>
+                        </td>
                     </tr>
                     {%endfor%}
                 </tbody>
